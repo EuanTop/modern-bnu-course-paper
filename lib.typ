@@ -215,10 +215,6 @@
     // 致谢页
     acknowledgement: (..args) => {
       acknowledgement(anonymous: anonymous, twoside: twoside, ..args)
-    },
-    // 成就页
-    achievement: (..args)=>{
-      achievement(anonymous: anonymous, twoside: twoside, ..args)
-    },
+    }
   )
 }

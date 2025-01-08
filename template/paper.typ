@@ -19,7 +19,6 @@
   outline-page,
   notation,
   acknowledgement,
-  achievement,
 ) = documentclass(
   twoside: false, // 双面模式，会加入空白页，便于打印
   // 可自定义字体，先英文字体后中文字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
@@ -27,7 +26,7 @@
   info: (
     title: ("基于Typst的北京师范大学课程论文模板", ""),
     title-en: "Beijing Normal University course paper template based on Typst",
-    grade: "20XX",
+    grade: "2024",
     student-id: "202422017xxx",
     author: "张　三",
     author-en: "Zhang San",
