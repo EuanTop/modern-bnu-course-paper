@@ -3,7 +3,7 @@
 // Repo: https://github.com/nju-lug/modern-nju-thesis
 // 在线模板可能不会更新得很及时，如果需要最新版本，请关注 Repo
 
-#import "@preview/anti-matter:0.0.2": anti-inner-end as mainmatter-end
+// #import "@preview/anti-matter:0.0.2": anti-inner-end as mainmatter-end
 #import "layouts/doc.typ": doc
 #import "layouts/preface.typ": preface
 #import "layouts/mainmatter.typ": mainmatter
@@ -11,8 +11,8 @@
 #import "pages/fonts-display-page.typ": fonts-display-page
 #import "pages/bachelor-cover.typ": bachelor-cover
 #import "pages/master-cover.typ": master-cover
-#import "pages/bachelor-decl-page.typ": bachelor-decl-page
-#import "pages/master-decl-page.typ": master-decl-page
+// #import "pages/bachelor-decl-page.typ": bachelor-decl-page
+// #import "pages/master-decl-page.typ": master-decl-page
 #import "pages/bachelor-abstract.typ": bachelor-abstract
 #import "pages/master-abstract.typ": master-abstract
 #import "pages/bachelor-abstract-en.typ": bachelor-abstract-en
@@ -55,6 +55,8 @@
     department-en: "XX Department",
     major: "某专业",
     major-en: "XX Major",
+    class: "美术与书法2401",
+
     field: "某方向",
     field-en: "XX Field",
     supervisor: ("李四", "教授"),
@@ -102,7 +104,7 @@
       }
     },
     mainmatter-end: (..args) => {
-      mainmatter-end(..args)
+      // mainmatter-end(..args)
     },
     appendix: (..args) => {
       appendix(..args)
@@ -137,21 +139,21 @@
       }
     },
     // 声明页，通过 type 分发到不同函数
-    decl-page: (..args) => {
-      if doctype == "master" or doctype == "doctor" {
-        master-decl-page(anonymous: anonymous, twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
-      } else if doctype == "postdoc" {
-        panic("postdoc has not yet been implemented.")
-      } else {
-        bachelor-decl-page(
-          anonymous: anonymous,
-          twoside: twoside,
-          ..args,
-          fonts: fonts + args.named().at("fonts", default: (:)),
-          info: info + args.named().at("info", default: (:)),
-        )
-      }
-    },
+    // decl-page: (..args) => {
+    //   if doctype == "master" or doctype == "doctor" {
+    //     master-decl-page(anonymous: anonymous, twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+    //   } else if doctype == "postdoc" {
+    //     panic("postdoc has not yet been implemented.")
+    //   } else {
+    //     bachelor-decl-page(
+    //       anonymous: anonymous,
+    //       twoside: twoside,
+    //       ..args,
+    //       fonts: fonts + args.named().at("fonts", default: (:)),
+    //       info: info + args.named().at("info", default: (:)),
+    //     )
+    //   }
+    // },
     // 中文摘要页，通过 type 分发到不同函数
     abstract: (..args) => {
       if doctype == "master" or doctype == "doctor" {
@@ -205,13 +207,13 @@
       bachelor-outline-page(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
     },
     // 插图目录页
-    list-of-figures: (..args) => {
-      list-of-figures(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
-    },
-    // 表格目录页
-    list-of-tables: (..args) => {
-      list-of-tables(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
-    },
+    // list-of-figures: (..args) => {
+    //   list-of-figures(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+    // },
+    // // 表格目录页
+    // list-of-tables: (..args) => {
+    //   list-of-tables(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+    // },
     // 符号表页
     notation: (..args) => {
       notation(twoside: twoside, ..args)

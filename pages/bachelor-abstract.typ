@@ -44,13 +44,13 @@
   }
 
   // 4.  正式渲染
-  pagebreak(weak: true)
-  
+  // pagebreak(weak: true)
   
 
   [
     #set text(font: fonts.宋体, size: 字号.小四)
     #set par(leading: leading, justify: true, spacing: spacing)
+
     // #show par: set block()
 
     // 标记一个不可见的标题用于目录生成
@@ -64,25 +64,33 @@
       #fakebold((("",)+ info.title).sum())
     ]
 
-    #v(15pt)
-
     #align(center)[
       #set text(font:字体.黑体,size: 字号.小三)
-      #fakebold[摘要]
+
+      #v(1em)
+
+      #fakebold(("姓名："+ info.author + "        学号：" + info.student-id + "        班级：" + info.class))
     ]
 
-    #body
+    #v(15pt)
+
+    // #align(left)[
+      #set text(font:字体.黑体,size: 字号.小三)
+      #fakebold[摘 要：]
+      #body
+    // ]
+
 
 
     #v(1em)
 
-    #h(2em)#fakebold(text(font: 字体.等宽, size: 字号.小四,"关键词："))#(("",)+ keywords.intersperse("；")).sum()
+    #h(2em)#fakebold(text(font: 字体.黑体, size: 字号.小三,"关键词："))#(("",)+ keywords.intersperse("；")).sum()
   ]
 
-  if twoside {
-    pagebreak()
-    counter(page).update(n => {(n - 1)})
-    set page(numbering: none,)
-    ""
-  }
+  // if twoside {
+  //   pagebreak()
+  //   counter(page).update(n => {(n - 1)})
+  //   set page(numbering: none,)
+  //   ""
+  // }
 }

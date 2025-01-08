@@ -126,7 +126,7 @@
   
 
   // 4.  正式渲染
-  pagebreak(weak: true, to: if twoside { "odd" })
+  // pagebreak(weak: true, to: if twoside { "odd" })
 
   block(width: 70pt, inset: meta-block-inset, grid(
     columns: (meta-info-key-width, 1fr),
@@ -204,7 +204,7 @@
 
 
   // 第二页
-  pagebreak(weak: true)
+  // pagebreak(weak: true)
 
   v(161pt)
 
@@ -229,7 +229,7 @@
   align(left, box(width: 7.3em, text(font: fonts.楷体, size: 字号.三号, weight: "bold", justify-text(with-tail: true, "导师签名"))))
 
   // 第三页英文封面页
-  pagebreak(weak: true)
+  // pagebreak(weak: true)
 
   set text(font: fonts.楷体, size: 字号.小四)
   set par(leading: 1.3em)

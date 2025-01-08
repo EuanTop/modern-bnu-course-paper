@@ -77,7 +77,7 @@
   }
 
   // 4.  正式渲染
-  pagebreak(weak: true, to: if twoside { "odd" })
+  // pagebreak(weak: true, to: if twoside { "odd" })
 
   [
     #set text(font: fonts.楷体, size: 字号.四号)

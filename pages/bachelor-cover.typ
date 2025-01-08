@@ -31,11 +31,11 @@
   info = (
     title: ("基于 Typst 的", "北京师范大学大学学位论文"),
     grade: "20XX",
-    student-id: "202111xxxxxx",
+    student-id: "202422007xxx",
     author: "张三",
-    department: "人工智能学院",
+    department: "未来设计学院",
     major: "人工智能",
-    supervisor: ("李四", "教授", "人工智能学院"),
+    supervisor: ("李四", "教授", "未来设计学院"),
     submit-date: datetime.today(),
   ) + info
    
@@ -108,7 +108,7 @@
    
   // 4.  正式渲染
    
-  pagebreak(weak: true, to: if twoside { "odd" })
+  // pagebreak(weak: true, to: if twoside { "odd" })
    
   set page(margin: (left: 2.5cm, top: 2.5cm, right: 2.0cm, bottom: 2.0cm))
   set par(spacing: 0pt)
@@ -131,7 +131,7 @@
   }
    
   // 将中文之间的空格间隙从 0.25 em 调整到 0.5 em
-  block(text(size: 字号.小初, font: 字体.宋体, spacing: 0.25em, weight: "extrabold", fakebold()[ 本 科 生 毕 业 论 文（设 计） ]))
+  block(text(size: 字号.小初, font: 字体.宋体, spacing: 0.25em, weight: "extrabold", fakebold()[ 某 课 程 论 文 模 版 ]))
    
   if anonymous {
     v(155pt)

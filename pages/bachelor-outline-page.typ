@@ -42,7 +42,7 @@
   }
    
   // 2.  正式渲染
-  pagebreak(weak: true)
+  // pagebreak(weak: true)
    
   // 默认显示的字体
   set text(font: reference-font, size: reference-size)
@@ -75,10 +75,10 @@
   // 显示目录
   outline(title: none, depth: depth)
    
-  if twoside {
-    pagebreak()
-    counter(page).update(n => { (n - 1) })
-    set page(numbering: none,)
-    ""
-  }
+  // if twoside {
+  //   pagebreak()
+  //   counter(page).update(n => { (n - 1) })
+  //   set page(numbering: none,)
+  //   ""
+  // }
 }

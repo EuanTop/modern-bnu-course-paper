@@ -17,7 +17,7 @@
   spacing: 1.5 * 15.6pt - 0.7em,
   justify: true,
   first-line-indent: 2em,
-  numbering: custom-numbering.with(first-level: "第1章 ", depth: 4, "1.1 "),
+  numbering: custom-numbering.with(first-level: "1 ", depth: 4, "1.1 "),
   // 正文字体与字号参数
   text-args: auto,
   // 标题字体与字号
@@ -26,8 +26,8 @@
   heading-weight: ("bold",),
   heading-above: (2 * 15.6pt - 0.7em, 2 * 15.6pt - 0.7em),
   heading-below: (2 * 15.6pt - 0.7em, 1.5 * 15.6pt - 0.7em),
-  heading-pagebreak: (true, false),
-  heading-align: (center, auto),
+  heading-pagebreak: (false, false),
+  heading-align: (left, auto),
   // 页眉
   header-render: auto,
   header-vspace: 0em,
@@ -49,7 +49,8 @@
 ) = {
   // 0.  标志前言结束
   anti-front-end()
-  
+  v(2em)
+
   show: show-cn-fakebold
   
   // 1.  默认参数
@@ -115,7 +116,7 @@
     if (array-at(heading-pagebreak, it.level)) {
       // 如果打上了 no-auto-pagebreak 标签，则不自动换页
       if ("label" not in it.fields() or str(it.label) != "no-auto-pagebreak") {
-        pagebreak(weak: true)
+        // pagebreak(weak: true)
       }
     }
     if (array-at(heading-align, it.level) != auto) {
@@ -127,50 +128,50 @@
   }
   
   // 5.  处理页眉
-  set page(
-    ..(
-      if display-header {
-        (
-          header: {
-            // 重置 footnote 计数器
-            if reset-footnote {
-              counter(footnote).update(0)
-            }
-            locate(
-              loc => {
-                // 5.1 获取当前页面的一级标题
-                let cur-heading = current-heading(level: 1, loc)
-                // 5.2 如果当前页面没有一级标题，则渲染页眉
-                if not skip-on-first-level or cur-heading == none {
-                  if header-render == auto {
-                    // 一级标题和二级标题
-                    let first-level-heading = if not twoside or calc.rem(loc.page(), 2) == 0 { heading-display(active-heading(level: 1, loc)) } else { "" }
-                    let second-level-heading = if not twoside or calc.rem(loc.page(), 2) == 2 { heading-display(active-heading(level: 2, prev: false, loc)) } else { "" }
-                    set text(font: fonts.楷体, size: 字号.五号)
-                    stack(
-                      first-level-heading + h(1fr) + second-level-heading,
-                      v(0.25em),
-                      if first-level-heading != "" or second-level-heading != "" { line(length: 100%, stroke: stroke-width + black) },
-                    )
-                  } else {
-                    header-render(loc)
-                  }
-                  v(header-vspace)
-                }
-              },
-            )
-          },
-        )
-      } else {
-        (header: {
-          // 重置 footnote 计数器
-          if reset-footnote {
-            counter(footnote).update(0)
-          }
-        })
-      }
-    ),
-  )
+  // set page(
+  //   ..(
+  //     if display-header {
+  //       (
+  //         header: {
+  //           // 重置 footnote 计数器
+  //           if reset-footnote {
+  //             counter(footnote).update(0)
+  //           }
+  //           locate(
+  //             loc => {
+  //               // 5.1 获取当前页面的一级标题
+  //               let cur-heading = current-heading(level: 1, loc)
+  //               // 5.2 如果当前页面没有一级标题，则渲染页眉
+  //               if not skip-on-first-level or cur-heading == none {
+  //                 if header-render == auto {
+  //                   // 一级标题和二级标题
+  //                   let first-level-heading = if not twoside or calc.rem(loc.page(), 2) == 0 { heading-display(active-heading(level: 1, loc)) } else { "" }
+  //                   let second-level-heading = if not twoside or calc.rem(loc.page(), 2) == 2 { heading-display(active-heading(level: 2, prev: false, loc)) } else { "" }
+  //                   set text(font: fonts.楷体, size: 字号.五号)
+  //                   stack(
+  //                     first-level-heading + h(1fr) + second-level-heading,
+  //                     v(0.25em),
+  //                     if first-level-heading != "" or second-level-heading != "" { line(length: 100%, stroke: stroke-width + black) },
+  //                   )
+  //                 } else {
+  //                   header-render(loc)
+  //                 }
+  //                 v(header-vspace)
+  //               }
+  //             },
+  //           )
+  //         },
+  //       )
+  //     } else {
+  //       (header: {
+  //         // 重置 footnote 计数器
+  //         if reset-footnote {
+  //           counter(footnote).update(0)
+  //         }
+  //       })
+  //     }
+  //   ),
+  // )
   
   it
 }

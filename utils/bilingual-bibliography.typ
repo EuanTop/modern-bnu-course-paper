@@ -11,6 +11,8 @@
   allow-comma-in-name: false,
   // 如果使用的 CSL 中，英文姓名中会出现逗号，请设置为 true
 ) = {
+  v(2em)
+
   assert(bibliography != none, message: "请传入带有 source 的 bibliography 函数。")
 
   // Please fill in the remaining mapping table here

@@ -21,8 +21,13 @@
   }
 
   // 3.  基本的样式设置
-  set text(fallback: fallback, lang: lang)
-  set page(margin: margin)
+set text(fallback: fallback, lang: lang)
+  set page(
+    margin: margin,
+    // 添加页码设置
+    numbering: "1",  // 从1开始的阿拉伯数字
+    number-align: center,  // 页码居中
+  )
 
   // 4.  PDF 元信息
   set document(

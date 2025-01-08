@@ -1,11 +1,11 @@
 [package]
-name = "modern-bnu-thesis"
+name = "modern-bnu-course-thesis"
 version = "0.0.1"
 entrypoint = "lib.typ"
-authors = ["MosRat"]
+authors = ["Euan"]
 license = "MIT"
-description = "北京师范大学学位论文模板。Modern Beijing Normal University Thesis."
-repository = "https://github.com/mosrat/modern-bnu-thesis"
+description = "北京师范大学课程论文模板。Modern Beijing Normal University Course Thesis."
+repository = "https://github.com/EuanTop/modern-bnu-course-thesis"
 keywords = ["Beijing Normal University", "thesis"]
 categories = ["thesis"]
 exclude = ["imgs"]
