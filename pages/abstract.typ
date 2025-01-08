@@ -4,8 +4,8 @@
 #import "../utils/double-underline.typ": double-underline
 #import "../utils/invisible-heading.typ": invisible-heading
 
-// 本科生中文摘要页
-#let bachelor-abstract(
+// 基本信息 + 摘要页
+#let abstract(
   // documentclass 传入的参数
   anonymous: false,
   twoside: false,
@@ -57,40 +57,30 @@
     #invisible-heading(level: 1, outlined: outlined, outline-title)
 
     #align(center)[
-      #set text(font:字体.黑体,size: 字号.三号)
+      #set text(font:字体.黑体, size: 字号.小二)
 
-      #v(1em)
+      // #v(1em)
 
       #fakebold((("",)+ info.title).sum())
     ]
 
     #align(center)[
-      #set text(font:字体.黑体,size: 字号.小三)
+      #set text(font:字体.宋体,size: 字号.四号)
 
-      #v(1em)
+      #v(2em)
 
-      #fakebold(("姓名："+ info.author + "        学号：" + info.student-id + "        班级：" + info.class))
+      #fakebold(("姓名："+ info.author + "                学号：" + info.student-id + "                班级：" + info.class))
     ]
 
     #v(15pt)
 
-    // #align(left)[
-      #set text(font:字体.黑体,size: 字号.小三)
-      #fakebold[摘 要：]
-      #body
-    // ]
-
-
+    #set text(font:字体.黑体,size: 字号.四号)
+    #fakebold("摘    要：")
+    #set text(font:字体.宋体,size: 字号.四号)
+    #body
 
     #v(1em)
 
-    #h(2em)#fakebold(text(font: 字体.黑体, size: 字号.小三,"关键词："))#(("",)+ keywords.intersperse("；")).sum()
+    #h(2em)#fakebold(text(font: 字体.黑体, size: 字号.四号,"关键词："))#(("",)+ keywords.intersperse("；")).sum()
   ]
-
-  // if twoside {
-  //   pagebreak()
-  //   counter(page).update(n => {(n - 1)})
-  //   set page(numbering: none,)
-  //   ""
-  // }
 }

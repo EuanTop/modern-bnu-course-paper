@@ -9,20 +9,10 @@
 #import "layouts/mainmatter.typ": mainmatter
 #import "layouts/appendix.typ": appendix
 #import "pages/fonts-display-page.typ": fonts-display-page
-#import "pages/bachelor-cover.typ": bachelor-cover
-#import "pages/master-cover.typ": master-cover
-// #import "pages/bachelor-decl-page.typ": bachelor-decl-page
-// #import "pages/master-decl-page.typ": master-decl-page
-#import "pages/bachelor-abstract.typ": bachelor-abstract
-#import "pages/master-abstract.typ": master-abstract
-#import "pages/bachelor-abstract-en.typ": bachelor-abstract-en
-#import "pages/master-abstract-en.typ": master-abstract-en
-#import "pages/bachelor-outline-page.typ": bachelor-outline-page
-#import "pages/list-of-figures.typ": list-of-figures
-#import "pages/list-of-tables.typ": list-of-tables
+#import "pages/abstract.typ": abstract
+#import "pages/outline-page.typ": outline-page
 #import "pages/notation.typ": notation
 #import "pages/acknowledgement.typ": acknowledgement
-#import "pages/achievements.typ":achievement
 #import "utils/custom-cuti.typ": *
 #import "utils/bilingual-bibliography.typ": bilingual-bibliography
 #import "utils/custom-numbering.typ": custom-numbering
@@ -169,7 +159,7 @@
       } else if doctype == "postdoc" {
         panic("postdoc has not yet been implemented.")
       } else {
-        bachelor-abstract(
+        abstract(
           anonymous: anonymous,
           twoside: twoside,
           ..args,
@@ -193,7 +183,7 @@
       } else if doctype == "postdoc" {
         panic("postdoc has not yet been implemented.")
       } else {
-        bachelor-abstract-en(
+        abstract-en(
           anonymous: anonymous,
           twoside: twoside,
           ..args,
@@ -204,7 +194,7 @@
     },
     // 目录页
     outline-page: (..args) => {
-      bachelor-outline-page(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
+      outline-page(twoside: twoside, ..args, fonts: fonts + args.named().at("fonts", default: (:)))
     },
     // 插图目录页
     // list-of-figures: (..args) => {

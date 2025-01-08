@@ -2,8 +2,8 @@
 #import "../utils/invisible-heading.typ": invisible-heading
 #import "../utils/style.typ": 字号, 字体
 
-// 本科生目录生成
-#let bachelor-outline-page(
+// 目录生成
+#let outline-page(
   // documentclass 传入参数
   twoside: false,
   fonts: (:),
@@ -26,7 +26,8 @@
   fill: (auto,),
   ..args,
 ) = {
-  
+  v(1.6em)
+
   // 1.  默认参数
   fonts = 字体 + fonts
   if (title-text-args == auto) {
@@ -74,11 +75,4 @@
    
   // 显示目录
   outline(title: none, depth: depth)
-   
-  // if twoside {
-  //   pagebreak()
-  //   counter(page).update(n => { (n - 1) })
-  //   set page(numbering: none,)
-  //   ""
-  // }
 }
